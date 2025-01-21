@@ -47,7 +47,6 @@ public class LibraryDB {
     }
 
 
-
     public boolean updateBookQuantity(int id, int newQuantity) {
         try {
             PreparedStatement stmt = connection.prepareStatement(
