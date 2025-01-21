@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        
         PostgresDB postgresDB = new PostgresDB(
                 "jdbc:postgresql://localhost:5432",
                 "postgres",
                 "4584",
                 "library"
         );
+        
         Connection connection = postgresDB.getConnection();
         DatabaseInitializer.initializeDatabase(connection);
         LibraryDB libraryDB = new LibraryDB(postgresDB.getConnection());
@@ -19,12 +21,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n1. show all books");
-            System.out.println("2. get books");
-            System.out.println("3. give a book");
+            System.out.println("\n1. Show all books");
+            System.out.println("2. Get books");
+            System.out.println("3. Give a book");
             System.out.println("4. Add a new book");
-            System.out.println("5. close");
-            System.out.print("select action: ");
+            System.out.println("5. Exit");
+            System.out.print("Select action: ");
             int option = scanner.nextInt();
 
             switch (option) {
@@ -56,10 +58,10 @@ public class Main {
 
                 case 5:
                     postgresDB.close();
-                    System.out.println("code is closed.");
+                    System.out.println("Code is closed.");
                     return;
                 default:
-                    System.out.println("wrong option, please try again.");
+                    System.out.println("Wrong option, please try again!");
             }
         }
     }
