@@ -51,7 +51,7 @@ import java.sql.DriverManager;
                 if (connection != null && !connection.isClosed()) {
                     return connection;
                 }
-                // Загрузка драйвера PostgreSQL
+
                 Class.forName("org.postgresql.Driver");
                 connection = DriverManager.getConnection(connectionUrl, username, password);
                 System.out.println("Connection successful.");
